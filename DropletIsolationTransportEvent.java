@@ -11,7 +11,8 @@ package patienttransporttracker;
  */
 public class DropletIsolationTransportEvent extends TransportEvent {
     
-    public DropletIsolationTransportEvent (Patient _patient, Transporter _assignedTransporter, HealthcareProfessional _healthcareOrderer, String _destinationLocation) {
+    public DropletIsolationTransportEvent (int _id, Patient _patient, Transporter _assignedTransporter, HealthcareProfessional _healthcareOrderer, String _destinationLocation) {
+        id =_id;
         patient = _patient;
         assignedTransporter = _assignedTransporter;
         healthcareOrderer = _healthcareOrderer;  

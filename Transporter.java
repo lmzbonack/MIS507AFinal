@@ -56,10 +56,9 @@ public class Transporter {
     
     @Override
     public String toString() {
-        return ("TRANSPORTER INFO" + "\n" +
-                "ID: " + idNumber  + "\n" +
+        return ("ID: " + idNumber  + "\n" +
                 "FIRST NAME: " + firstName + "\n" +
                 "LAST NAME: " + lastName  + "\n" +
-                "CPR CERTIFIED: " + cprCertified);
+                "CPR CERTIFIED: " + cprCertified + "\n");
     }
 }

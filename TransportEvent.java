@@ -11,6 +11,7 @@ package patienttransporttracker;
  */
 
 abstract public class TransportEvent {
+    protected int id;
     protected Patient patient;
     protected Transporter assignedTransporter;
     protected HealthcareProfessional healthcareOrderer;
@@ -20,6 +21,10 @@ abstract public class TransportEvent {
     protected HealthcareProfessional healthcareAssistantTranporter;
     protected String transportInstructions;
    
+    public int getId () {
+        return id;
+    }
+    
     public Patient getPatient () {
         return patient;
     }
@@ -48,6 +53,10 @@ abstract public class TransportEvent {
     public String getTransportInstructions () {
         return transportInstructions;
     };
+    
+    public void setId(int _id){
+        id = _id;
+    }
     
     public void setCompletionStatus(boolean _complete) {
         complete = _complete;
@@ -84,8 +93,8 @@ abstract public class TransportEvent {
                "FROM: Room " + patient.getRoomNumber() + "\n" +
                "TO: " + destinationLocation + "\n" +
                "ASSIGNED TRANSPORTER: " + assignedTransporter.getId() + "\n" +
-               "ASSIGNED HEALTHCARE ASSISTANT TRANSPORTER: " + healthcareAssistantTranporter + "\n" +
-               "TRANSPORT INSTRUCTION: " + transportInstructions 
+               "ASSIGNED HEALTHCARE ASSISTANT TRANSPORTER: " + healthcareAssistantTranporter.getFirstName() + " " + healthcareAssistantTranporter.getLastName()+ "\n" +
+               "TRANSPORT INSTRUCTION: " + transportInstructions + "\n"
                );
     }
 }

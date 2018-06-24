@@ -10,11 +10,16 @@ package patienttransporttracker;
  * @author Luc
  */
 public abstract class Patient {
+    protected int id;
     protected String firstName;
     protected String lastName;
     protected int roomNumber;
     protected String patientType;
     protected String patientStatus;
+    
+    public int getId() {
+        return id;
+    };
     
     public String getFirstName(){
         return firstName;
@@ -26,6 +31,18 @@ public abstract class Patient {
     
     public int getRoomNumber(){
         return roomNumber;
+    }
+    
+    public String getPatientType(){
+        return patientType;
+    } 
+ 
+    public String getPatientStatus(){
+        return patientStatus;
+    }
+    
+    public void setId(int _id){
+        id =_id;
     }
     
     public void setFirstName(String _firstName){
@@ -40,14 +57,7 @@ public abstract class Patient {
         roomNumber = _roomNumber;
     }
     
-    public String getPatientType(){
-        return patientType;
-    } 
- 
-    public String getPatientStatus(){
-        return patientStatus;
-    }
-    
+
     public String toString(){
         return ("Patient First Name: " + firstName + "\n" +
                 "Patient Last Name: " + lastName + "\n" +

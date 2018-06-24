@@ -17,7 +17,6 @@ public class PsychPatientDecorator extends PatientDecorator {
     
     @Override
     public void setPatientStatus(){
-        System.out.println("RUN");
         decoratedPatient.setPatientStatus();
         setRealStatus(decoratedPatient);
     }

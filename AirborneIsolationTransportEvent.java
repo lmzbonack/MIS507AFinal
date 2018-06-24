@@ -11,7 +11,8 @@ package patienttransporttracker;
  */
 public class AirborneIsolationTransportEvent extends TransportEvent {
     
-    public AirborneIsolationTransportEvent (Patient _patient, Transporter _assignedTransporter, HealthcareProfessional _healthcareOrderer, String _destinationLocation) {
+    public AirborneIsolationTransportEvent (int _id, Patient _patient, Transporter _assignedTransporter, HealthcareProfessional _healthcareOrderer, String _destinationLocation) {
+        id =_id;
         patient = _patient;
         assignedTransporter = _assignedTransporter;
         healthcareOrderer = _healthcareOrderer;  
@@ -44,7 +45,7 @@ public class AirborneIsolationTransportEvent extends TransportEvent {
             } 
         }
         else {
-            System.out.println("Cannot resolve event no invalid or no healthcareAssistantTranporter has been assigned (Nurse must be assigned to Airborne Isolation Event)");
+            System.out.println("Cannot resolve event no healthcareAssistantTranporter or invalid healthcareAssistantTranporter has been assigned (Nurse must be assigned to Airborne Isolation Event)");
         }
     }
      

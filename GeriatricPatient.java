@@ -11,7 +11,8 @@ package patienttransporttracker;
  */
 public class GeriatricPatient extends Patient {
     
-    public GeriatricPatient (String _firstName, String _lastName, int _roomNumber) {
+    public GeriatricPatient (int _id, String _firstName, String _lastName, int _roomNumber) {
+        id = _id;
         firstName = _firstName;
         lastName = _lastName;
         roomNumber = _roomNumber;
@@ -24,11 +25,12 @@ public class GeriatricPatient extends Patient {
     
     @Override
     public String toString(){
-        return ("Patient First Name: " + firstName + "\n" +
+        return ("Patient ID: " + id + "\n" +
+                "Patient First Name: " + firstName + "\n" +
                 "Patient Last Name: " + lastName + "\n" +
                 "Patient Room Number: " + roomNumber + "\n" +
                 "Patient Type: " + patientType + "\n" +
-                "Patient Status: " + patientStatus);
+                "Patient Status: " + patientStatus + "\n");
     }
     
 }
