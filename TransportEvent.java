@@ -78,7 +78,9 @@ abstract public class TransportEvent {
         destinationLocation = _destinationLocation;
     }
     
-    abstract public void setHealthcareAssistantTranporter (HealthcareProfessional _healthcareAssistantTranporter);
+    public void setHealthcareAssistantTranporter (HealthcareProfessional _healthcareAssistantTranporter) {
+        healthcareAssistantTranporter = _healthcareAssistantTranporter;
+    };
     
     abstract public void setTransportInstructions ();
     
@@ -86,15 +88,28 @@ abstract public class TransportEvent {
     abstract public void resolveTransportEvent ();
 
     public String toString () {
-        return("TRANSPORT EVENT INFO" + "\n" + 
-               "COMPLETE?: " + complete + "\n" +
-               "ORDERED BY: " + healthcareOrderer.getFirstName() + " " + healthcareOrderer.getLastName() + "\n" +
-               "FOR PATIENT: " + patient.getFirstName() + " " + patient.getLastName() + "\n" +
-               "FROM: Room " + patient.getRoomNumber() + "\n" +
-               "TO: " + destinationLocation + "\n" +
-               "ASSIGNED TRANSPORTER: " + assignedTransporter.getId() + "\n" +
-               "ASSIGNED HEALTHCARE ASSISTANT TRANSPORTER: " + healthcareAssistantTranporter.getFirstName() + " " + healthcareAssistantTranporter.getLastName()+ "\n" +
-               "TRANSPORT INSTRUCTION: " + transportInstructions + "\n"
-               );
+        if(healthcareAssistantTranporter != null) {
+            return("TRANSPORT EVENT INFO" + "\n" + 
+                   "COMPLETE?: " + complete + "\n" +
+                   "ORDERED BY: " + healthcareOrderer.getFirstName() + " " + healthcareOrderer.getLastName() + "\n" +
+                   "FOR PATIENT: " + patient.getFirstName() + " " + patient.getLastName() + "\n" +
+                   "FROM: Room " + patient.getRoomNumber() + "\n" +
+                   "TO: " + destinationLocation + "\n" +
+                   "ASSIGNED TRANSPORTER: " + assignedTransporter.getId() + "\n" +
+                   "ASSIGNED HEALTHCARE ASSISTANT TRANSPORTER: " + healthcareAssistantTranporter.getFirstName() + " " + healthcareAssistantTranporter.getLastName()+ "\n" +
+                   "TRANSPORT INSTRUCTION: " + transportInstructions + "\n"
+                   );
+            } else {
+                    return("TRANSPORT EVENT INFO" + "\n" + 
+                    "COMPLETE?: " + complete + "\n" +
+                    "ORDERED BY: " + healthcareOrderer.getFirstName() + " " + healthcareOrderer.getLastName() + "\n" +
+                    "FOR PATIENT: " + patient.getFirstName() + " " + patient.getLastName() + "\n" +
+                    "FROM: Room " + patient.getRoomNumber() + "\n" +
+                    "TO: " + destinationLocation + "\n" +
+                    "ASSIGNED TRANSPORTER: " + assignedTransporter.getId() + "\n" +
+                    "TRANSPORT INSTRUCTION: " + transportInstructions + "\n"
+                    );
+            }
+
     }
 }

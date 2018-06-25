@@ -21,11 +21,6 @@ public class AirborneIsolationTransportEvent extends TransportEvent {
     }
 
     @Override
-    public void setHealthcareAssistantTranporter (HealthcareProfessional _healthcareAssistantTranporter) {
-        healthcareAssistantTranporter = _healthcareAssistantTranporter;
-    };
-
-    @Override
     public void setTransportInstructions (){
         transportInstructions = "THIS IS AN AIRBORNE ISOLATION TRANSPORT";
     };

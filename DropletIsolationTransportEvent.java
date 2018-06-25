@@ -21,11 +21,6 @@ public class DropletIsolationTransportEvent extends TransportEvent {
     }
 
     @Override
-    public void setHealthcareAssistantTranporter (HealthcareProfessional _healthcareAssistantTranporter) {
-        healthcareAssistantTranporter = _healthcareAssistantTranporter;
-    };
-
-    @Override
     public void setTransportInstructions (){
         transportInstructions = "THIS IS A DROPLET ISOLATION TRANSPORT";
     };

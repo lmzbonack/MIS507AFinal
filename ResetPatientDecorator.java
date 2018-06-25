@@ -9,9 +9,9 @@ package patienttransporttracker;
  *
  * @author Luc
  */
-public class PsychPatientDecorator extends PatientDecorator {
+public class ResetPatientDecorator extends PatientDecorator {
     
-    public PsychPatientDecorator(Patient decoratedPatient) {
+    public ResetPatientDecorator(Patient decoratedPatient) {
         super(decoratedPatient);
     }
     
@@ -22,6 +22,7 @@ public class PsychPatientDecorator extends PatientDecorator {
     }
     
     private void setRealStatus(Patient decoratedPatient){
-        decoratedPatient.patientStatus = "PSYCH PATIENT";
+        decoratedPatient.patientStatus = null;
     }
 }
+

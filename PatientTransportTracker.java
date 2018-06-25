@@ -53,6 +53,14 @@ public class PatientTransportTracker {
                 }
             }
             
+            else if(input.equals("LIST-TRANSPORTERS")){
+                listTransporters();
+            }
+            
+            else if(input.equals("LIST-HEALTHCARE-PROFESSIONALS")){
+                listHCProfs();
+            }
+            
             //decoratePatient('P', 1);
             else if(input.equals("DECORATE-PATIENT")){
                 System.out.println("TYPE OF DECORATION: ");
@@ -98,6 +106,13 @@ public class PatientTransportTracker {
                 listTransportEvents();
             }
             
+            else if(input.equals("LIST-COMPLETE-TRANSPORT-EVENTS")){
+                listCompletedTransportEvents();
+            }
+            
+            else if(input.equals("LIST-UNCOMPLETE-TRANSPORT-EVENTS")){
+                listUncompletedTransportEvents();
+            }
             //setHealthcareAssistantTranporter(1,2);
             //int id, int healthcareId
             else if(input.equals("SET-ASSISTANT-TRANSPORTER")){
@@ -130,40 +145,6 @@ public class PatientTransportTracker {
                 System.out.println("Invalid input please retry");
             }  
         }
-        
-        
-//            createPatient('S', 1, "Luc", "Zbonack", 100);
-//            listPatients();
-//            decoratePatient('P', 1);
-//            listPatients();
-//            createPatient('P', 2, "Timmy", "Dog", 102);
-//            listPatients();
-//
-//            createTransportEvent('A',1,1,1,1,"Scanner1");
-//            listTransportEvents();
-//            resolveTransportEvent(1);
-//            setHealthcareAssistantTranporter(1,2);
-//            resolveTransportEvent(1);
-//            listTransportEvents();
-//            
-//            initializeTransporters();
-//            listTransporters();
-//            initializeHCProfs();
-//            listHCProfs();
-//
-//            createPatient('S', 1, "Luc", "Zbonack", 100);
-//            listPatients();
-//            decoratePatient('P', 1);
-//            listPatients();
-//            createPatient('P', 2, "Timmy", "Dog", 102);
-//            listPatients();
-//
-//            createTransportEvent('A',1,1,1,1,"Scanner1");
-//            listTransportEvents();
-//            resolveTransportEvent(1);
-//            setHealthcareAssistantTranporter(1,2);
-//            resolveTransportEvent(1);
-//            listTransportEvents();
     };
 
     public static void initializeTransporters() {
@@ -222,8 +203,8 @@ public class PatientTransportTracker {
     };
 
     public static void decoratePatient(char type, int id) {
-        if (type == 'P') {
-            Patient junkPatient = new PsychPatientDecorator(patientMap.get(id));
+        if (type == 'R') {
+            Patient junkPatient = new ResetPatientDecorator(patientMap.get(id));
             junkPatient.setPatientStatus();
         } else if (type == 'E') {
             Patient junkPatient = new EmergencyPatientDecorator(patientMap.get(id));
@@ -261,6 +242,10 @@ public class PatientTransportTracker {
             TransportEvent t = new DropletIsolationTransportEvent(id, patientMap.get(patientId), transporterMap.get(assignedTransporterId), hcProfMap.get(healthcareOrdererId), destinationLocation);
             transportEventMap.put(t.getId(), t);
         }
+        else if (type == 'S'){
+            TransportEvent t = new StandardTransportEvent(id, patientMap.get(patientId), transporterMap.get(assignedTransporterId), hcProfMap.get(healthcareOrdererId), destinationLocation);
+            transportEventMap.put(t.getId(), t);
+        }
         else {
             System.out.println("INVALID TRANSPORT EVENT DATA PLEASE TRY AGAIN");
         }
@@ -291,7 +276,6 @@ public class PatientTransportTracker {
             System.out.println(pair.getValue());
         }
     }
-        
         
     public static void listUncompletedTransportEvents() {
         System.out.println("TRANSPORT EVENTS\n");
